@@ -7,9 +7,8 @@ import Bill from "./bill";
 import { formatDate } from "@angular/common";
 import { TableColumns } from "@components/table/table";
 import formatCurrency from "../../../../../../utils/currency-formatter";
-import RatesService from "../../../../_global/auth/_common/services/rates/rates.service";
-import PaymentService from "../../../../_global/auth/_common/services/payment/payment.service";
 import Customer from "../../../../admin/_common/models/user";
+import PaymentService from "../../../../_global/payment/services/payment/payment.service";
 
 @Injectable({
     providedIn: "root",

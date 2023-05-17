@@ -6,9 +6,9 @@ import CustomersService from "../_common/services/customers.service";
 import BillsService from "../../user/bills/_common/services/bills.service";
 import { ActivatedRoute } from "@angular/router";
 import { BehaviorSubject } from "rxjs";
-import PaymentService from "../../_global/auth/_common/services/payment/payment.service";
 import { FormGroup, FormBuilder, Validators } from "@angular/forms";
 import { dateValidator } from "../../_global/validators/DateValidator";
+import PaymentService from "../../_global/payment/services/payment/payment.service";
 
 @Component({
     selector: "app-user-details",

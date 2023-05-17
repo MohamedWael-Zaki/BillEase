@@ -3,8 +3,8 @@ import { DatabaseService } from "../../../_global/services/database.service";
 import { TableColumns, TableData } from "@components/table/table";
 import BillsService from "../_common/services/bills.service";
 import Bill from "../_common/services/bill";
-import PaymentService from "../../../_global/auth/_common/services/payment/payment.service";
-import { Rates } from "../../../_global/auth/_common/services/rates/rate";
+import PaymentService from "../../../_global/payment/services/payment/payment.service";
+import {Rates} from "../../../_global/payment/services/rates/rate";
 
 @Component({
     selector: "app-dashboard",

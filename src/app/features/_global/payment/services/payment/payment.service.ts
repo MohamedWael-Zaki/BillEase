@@ -1,11 +1,11 @@
 import { Injectable } from "@angular/core";
 import { HttpClient } from "@angular/common/http";
 import RatesService from "../rates/rates.service";
-import Bill from "../../../../../user/bills/_common/services/bill";
 import { RatesLookup } from "../rates/rate";
-import dateDifferenceCalculator from "../../../../../../../utils/date-diff-calculator";
-import { environment } from "../../../../../../../environments/environment";
-import Customer from "../../../../../admin/_common/models/user";
+import Customer from "../../../../admin/_common/models/user";
+import dateDifferenceCalculator from "../../../../../../utils/date-diff-calculator";
+import Bill from "../../../../user/bills/_common/services/bill";
+import {environment} from "../../../../../../environments/environment";
 
 @Injectable({
     providedIn: "root",

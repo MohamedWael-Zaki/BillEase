@@ -4,9 +4,8 @@ import User from "../auth/_common/models/user";
 import { object } from "@angular/fire/database";
 import dateDifferenceCalculator from "../../../../utils/date-diff-calculator";
 import formatCurrency from "../../../../utils/currency-formatter";
-import RatesService from "../auth/_common/services/rates/rates.service";
 import BillsService from "../../user/bills/_common/services/bills.service";
-import PaymentService from "../auth/_common/services/payment/payment.service";
+import PaymentService from "../payment/services/payment/payment.service";
 
 @Component({
     selector: "app-bill-summary",

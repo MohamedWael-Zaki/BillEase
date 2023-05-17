@@ -1,8 +1,8 @@
 import { Component } from "@angular/core";
-import { Rates } from "../../_global/auth/_common/services/rates/rate";
 import { Router } from "@angular/router";
-import RatesService from "../../_global/auth/_common/services/rates/rates.service";
 import { FormGroup, FormBuilder, Validators } from "@angular/forms";
+import RatesService from "../../_global/payment/services/rates/rates.service";
+import { Rates } from "../../_global/payment/services/rates/rate";
 
 @Component({
     selector: "app-rates",
@@ -10,7 +10,6 @@ import { FormGroup, FormBuilder, Validators } from "@angular/forms";
     styleUrls: ["./rates.component.css"],
 })
 export class RatesComponent {
-
     isSuccessful = false;
     loading = false;
     ratesForm: FormGroup;
@@ -22,7 +21,7 @@ export class RatesComponent {
             name: "electricity",
             unitCost: 4,
             overdueFees: 10,
-            backgroundColor: '#FFF7F0',
+            backgroundColor: "#FFF7F0",
         },
         water: {
             title: "Water",
@@ -31,21 +30,35 @@ export class RatesComponent {
             name: "water",
             unitCost: 2,
             overdueFees: 30,
-            backgroundColor: '#EDF8FF'
+            backgroundColor: "#EDF8FF",
         },
     };
 
-
-    constructor(private readonly ratesService: RatesService, private readonly router: Router, private fb: FormBuilder) {
+    constructor(
+        private readonly ratesService: RatesService,
+        private readonly router: Router,
+        private fb: FormBuilder
+    ) {
         this.ratesForm = this.fb.group({
-            electricity_unit_cost: ["", [Validators.required, Validators.pattern("^[0-9]*$")]],
-            electricity_overdue_cost: ["", [Validators.required, Validators.pattern("^[0-9]*$")]],
-            water_unit_cost: ["", [Validators.required, Validators.pattern("^[0-9]*$")]],
-            water_overdue_cost: ["", [Validators.required, Validators.pattern("^[0-9]*$")]],
-        })
+            electricity_unit_cost: [
+                "",
+                [Validators.required, Validators.pattern("^[0-9]*$")],
+            ],
+            electricity_overdue_cost: [
+                "",
+                [Validators.required, Validators.pattern("^[0-9]*$")],
+            ],
+            water_unit_cost: [
+                "",
+                [Validators.required, Validators.pattern("^[0-9]*$")],
+            ],
+            water_overdue_cost: [
+                "",
+                [Validators.required, Validators.pattern("^[0-9]*$")],
+            ],
+        });
         this.loading = true;
         this.fetchRates().then(() => (this.loading = false));
-
     }
 
     async fetchRates() {
@@ -72,7 +85,10 @@ export class RatesComponent {
         const res = await this.ratesService.save(rates);
         if (res === true) {
             this.isSuccessful = true;
-            setTimeout(() => this.router.navigateByUrl('admin/dashboard'), 1500);
+            setTimeout(
+                () => this.router.navigateByUrl("admin/dashboard"),
+                1500
+            );
         }
     }
 

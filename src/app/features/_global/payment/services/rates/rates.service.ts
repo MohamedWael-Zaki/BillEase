@@ -1,8 +1,7 @@
 import { Injectable } from "@angular/core";
 import { HttpClient } from "@angular/common/http";
-import { AuthService } from "../auth.service";
 import { Rates } from "./rate";
-import { environment } from "../../../../../../../environments/environment";
+import {environment} from "../../../../../../environments/environment";
 
 @Injectable({
     providedIn: "root",
@@ -10,7 +9,6 @@ import { environment } from "../../../../../../../environments/environment";
 export default class RatesService {
     constructor(
         private readonly http: HttpClient,
-        private readonly authService: AuthService
     ) {}
 
     get(): Promise<Rates> {
